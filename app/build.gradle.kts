@@ -46,7 +46,18 @@ android {
     }
 }
 
+// Define the Retrofit version
+val retrofitVersion = "2.11.0"
+
+// Define the dependencies
+val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+val gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
 dependencies {
+
+    //Retrofit
+    implementation(retrofit)
+    implementation(gsonConverter)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

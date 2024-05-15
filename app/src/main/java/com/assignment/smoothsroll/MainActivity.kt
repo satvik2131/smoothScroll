@@ -5,13 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.assignment.smoothsroll.ui.theme.SmoothSrollTheme
+import com.assignment.smoothsroll.views.ContentGrid
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,21 +16,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SmoothSrollTheme {
-                Scaffold(Modifier.fillMaxSize()) { inNnerPadding ->
-                    ContentGrid()
+                Scaffold(Modifier.fillMaxSize()) { padding ->
+                    ContentGrid(padding)
                 }
             }
         }
     }
 }
 
-@Composable
-fun ContentGrid() {
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 128.dp)
-    ) {
-//        items(photos) { photo ->
-//            PhotoItem(photo)
-//        }
-    }
-}
