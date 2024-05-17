@@ -1,5 +1,6 @@
 package com.assignment.smoothsroll.utils
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 
 import androidx.compose.ui.graphics.ImageBitmap
@@ -10,14 +11,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.URL
 
-suspend fun urlToImageBitmap(url: String): ImageBitmap {
+suspend fun urlToImageBitmap(url: String): Bitmap {
     val urlConnection = URL(url).openConnection()
     val op = withContext(Dispatchers.IO) {
         try {
             urlConnection.connect()
             val imageBytes = urlConnection.inputStream.readBytes()
             val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-            bitmap.asImageBitmap()
+            bitmap
         } finally {
 //           urlConnection.getInputStream().close()
         }
