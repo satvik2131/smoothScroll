@@ -36,9 +36,9 @@ fun ContentGrid(paddingValues: PaddingValues) {
 
     LazyVerticalGrid(
         contentPadding = paddingValues,
-        columns = GridCells.Adaptive(minSize = 128.dp),
+        columns = GridCells.Adaptive(minSize = 100.dp),
         verticalArrangement = Arrangement.spacedBy(3.dp),
-        horizontalArrangement = Arrangement.spacedBy(3.dp)
+        horizontalArrangement = Arrangement.spacedBy(3.dp),
     ) {
         items(imageData.itemCount) { index ->
             Surface(
